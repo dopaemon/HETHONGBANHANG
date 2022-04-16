@@ -380,7 +380,7 @@ CREATE TABLE DB_INFOHOADON
 	END
 -- Quyền Account --
 	CREATE PROC XOA_QUYENACCOUNT
-	@MAQUYEN NAVARCHAR(10)
+	@MAQUYEN NVARCHAR(10)
 	AS
 	BEGIN
 		DELETE
@@ -389,7 +389,7 @@ CREATE TABLE DB_INFOHOADON
 	END
 -- Màu sắc --
 	CREATE PROC XOA_MAUSAC
-	@MAMAUSAC NAVARCHAR(10)
+	@MAMAUSAC NVARCHAR(10)
 	AS
 	BEGIN
 		DELETE
@@ -398,7 +398,7 @@ CREATE TABLE DB_INFOHOADON
 	END
 -- Danh Mục --
 	CREATE PROC XOA_DANHMUC
-	@MADANHMUC NAVARCHAR(10)
+	@MADANHMUC NVARCHAR(10)
 	AS
 	BEGIN
 		DELETE
@@ -407,7 +407,7 @@ CREATE TABLE DB_INFOHOADON
 	END
 -- Sản Phẩm --
 	CREATE PROC XOA_SANPHAM
-	@MASANPHAM NAVARCHAR(10)
+	@MASANPHAM NVARCHAR(10)
 	AS
 	BEGIN
 		DELETE
@@ -416,8 +416,8 @@ CREATE TABLE DB_INFOHOADON
 	END
 -- Info Đơn Hàng --
 	CREATE PROC XOA_INFODONHANG
-	@MASANPHAM NAVARCHAR(10),
-	@MADONHANG NAVARCHAR(10)
+	@MASANPHAM NVARCHAR(10),
+	@MADONHANG NVARCHAR(10)
 	AS
 	BEGIN
 		DELETE
@@ -463,8 +463,8 @@ CREATE TABLE DB_INFOHOADON
 	END
 -- Thông tin hoá đơn --
 	CREATE PROC XOA_INFOHOADON
-	@MAHD
-	@MASANPHAM
+	@MAHD NVARCHAR(10),
+	@MASANPHAM NVARCHAR(10)
 	AS
 	BEGIN
 		DELETE
@@ -474,7 +474,63 @@ CREATE TABLE DB_INFOHOADON
 
 -- Cập Nhật --
 -- Đăng Ký --
+	CREATE PROC UPDATE_DANGKY
+	@USERNAME NVARCHAR(20) = '',
+	@PASSWDMOI NVARCHAR(20) = '',
+	@EMAILDKMOI NVARCHAR(50) = '',
+	@DIACHIDKMOI NVARCHAR(100) = '',
+	@TENDAYDUMOI NVARCHAR(50) = '',
+	@CAUHOIBAOMATMOI NVARCHAR(50) = '',
+	@NGAYSINHMOI DATE = '',
+	@GIOITINHDKMOI TINYINT = '',
+	@MAQUYENMOI NVARCHAR(10) = ''
+	AS
+	BEGIN
+		UPDATE DB_DANGKY
+		SET USERNAME = @USERNAME,
+			PASSWD = @PASSWDMOI,
+			EMAILDK = @EMAILDKMOI,
+			DIACHIDK = @DIACHIDKMOI,
+			TENDAYDU = @TENDAYDUMOI,
+			CAUHOIBAOMAT = @CAUHOIBAOMATMOI,
+			NGAYSINH = @NGAYSINHMOI,
+			GIOITINHDK = @GIOITINHDKMOI,
+			MAQUYEN = @MAQUYENMOI
+		WHERE USERNAME = @USERNAME
+	END
 -- Quyền Account --
 -- Màu Sắc --
 -- Danh Mục --
--- 
+-- Sản Phẩm --
+-- Thông Tin Đơn Hàng --
+-- Đơn Hàng --
+-- Khách Hàng --
+-- Hoá Đơn --
+-- Nhân Viên --
+-- Thông Tin hoá Đơn --
+
+-- Tìm Kiếm --
+-- Đăng Ký --
+-- Quyền Account --
+-- Màu Sắc --
+-- Danh Mục --
+-- Sản Phẩm --
+-- Thông Tin Đơn Hàng --
+-- Đơn Hàng --
+-- Khách Hàng --
+-- Hoá Đơn --
+-- Nhân Viên --
+-- Thông Tin hoá Đơn --
+
+-- More --
+-- Đăng Ký --
+-- Quyền Account --
+-- Màu Sắc --
+-- Danh Mục --
+-- Sản Phẩm --
+-- Thông Tin Đơn Hàng --
+-- Đơn Hàng --
+-- Khách Hàng --
+-- Hoá Đơn --
+-- Nhân Viên --
+-- Thông Tin hoá Đơn --
